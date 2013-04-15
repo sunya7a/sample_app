@@ -30,6 +30,6 @@ class User < ActiveRecord::Base
         uniqueness: { case_sensitive: false }   # Notice that you can chain validations.
                                                 # This seems to work only with the new
                                                 # hash style
-    validates :password, presence: true, length: { minimum: 6 }
+    validates :password, length: { minimum: 6 }
     validates :password_confirmation, presence: true
 end
