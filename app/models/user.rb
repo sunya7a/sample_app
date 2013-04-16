@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
     #before_save { |user| user.email = email.downcase }
     before_save { email.downcase! }
+    before_save :create_remember_token
 
     validates(:name, { :presence => true })
     validates(:name, { :length => { :maximum => 50 } })
@@ -32,4 +33,10 @@ class User < ActiveRecord::Base
                                                 # hash style
     validates :password, length: { minimum: 6 }
     validates :password_confirmation, presence: true
+
+    private
+
+        def create_remember_token
+            self.remember_token = SecureRandom.urlsafe_base64
+        end
 end
