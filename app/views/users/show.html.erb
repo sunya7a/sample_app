@@ -10,7 +10,11 @@
     </aside>
     <div class="span8">
         <% if @user.microposts.any? %>
+<<<<<<< HEAD
             <h3>Microposts (<%=user.microposts.count %>)</h3>
+=======
+            <h3>Microposts (<%= @user.microposts.count %>)</h3>
+>>>>>>> user-microposts
             <ol class="microposts">
                 <%= render @microposts %>
             </ol>
